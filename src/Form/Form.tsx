@@ -13,8 +13,11 @@ const Form = () => {
 
   const handleSubmit = () => {
     if (name && phone && email) {
-      localStorage.setItem('userDetails', JSON.stringify({ name, phone, email }));
+      localStorage.setItem('userDetails', 
+      JSON.stringify({ name, phone, email }));
+
       navigate('/userdetail');
+      
       Swal.fire({
         title: "Congratulation!",
         text: "Successfully you have fill the form. ",
@@ -24,8 +27,7 @@ const Form = () => {
     } else {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
+        title: "Something went wrong !!!",
         text: "Please make sure you have filled the form."
       
       })
