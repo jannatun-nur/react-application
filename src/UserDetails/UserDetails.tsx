@@ -12,7 +12,7 @@ interface Post {
 }
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'id', headerName: 'ID', width: 90, headerClassName: 'header-blue' },
   { field: 'title', headerName: 'Title', width: 150 },
   { field: 'body', headerName: 'Body', width: 300 },
 ];
@@ -31,12 +31,12 @@ const UserDetails = () => {
   }, []);
 
   return (
-    <Container>
+    <Container className='maindiv'>
       <Typography variant="h4" gutterBottom>
-        Posts
+        Users Information
       </Typography>
       <div style={{ height: 400, width: '100%' }}>
-        <DataGrid rows={data} columns={columns} pageSize={5} />
+        <DataGrid className='datagrid' rows={data} columns={columns} pageSize={5} />
       </div>
       <Categories/>
     </Container>

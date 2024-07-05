@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import { List, ListItem, ListItemText, Collapse, Checkbox, IconButton } from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import './Categories.css';
 
 const json = [
   {
@@ -45,35 +46,41 @@ const Categories = () => {
   };
 
   return (
-    <List>
-      {json.map((dep, index) => (
-        <div key={index}>
-          <ListItem>
-            <Checkbox
-              checked={!!selected[dep.department]}
-              onChange={() => handleSelect(dep.department)}
-            />
-            <ListItemText primary={dep.department} />
-            <IconButton onClick={() => handleToggle(dep.department)}>
-              {open[dep.department] ? <ExpandLess /> : <ExpandMore />}
-            </IconButton>
-          </ListItem>
-          <Collapse in={open[dep.department]} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {dep.sub_departments.map((sub, idx) => (
-                <ListItem key={idx} sx={{ pl: 4 }}>
-                  <Checkbox
-                    checked={!!selected[sub]}
-                    onChange={() => handleSelect(dep.department, sub)}
-                  />
-                  <ListItemText primary={sub} />
-                </ListItem>
-              ))}
-            </List>
-          </Collapse>
-        </div>
-      ))}
-    </List>
+   <div>
+     <p className='text'>What are you interested for.....</p>
+     <List className="listContainer">
+     
+     {json.map((dep, index) => (
+       <div key={index}>
+         <ListItem className="listItem">
+           <Checkbox
+             checked={!!selected[dep.department]}
+             onChange={() => handleSelect(dep.department)}
+           />
+           <ListItemText primary={dep.department} />
+           <IconButton onClick={() => handleToggle(dep.department)}>
+             {open[dep.department] ? <ExpandLess /> : <ExpandMore />}
+           </IconButton>
+         </ListItem>
+
+
+         <Collapse in={open[dep.department]} timeout="auto" unmountOnExit>
+           <List component="div" disablePadding>
+             {dep.sub_departments.map((sub, idx) => (
+               <ListItem key={idx} sx={{ pl: 4 }}>
+                 <Checkbox
+                   checked={!!selected[sub]}
+                   onChange={() => handleSelect(dep.department, sub)}
+                 />
+                 <ListItemText primary={sub} />
+               </ListItem>
+             ))}
+           </List>
+         </Collapse>
+       </div>
+     ))}
+   </List>
+   </div>
   );
 };
 

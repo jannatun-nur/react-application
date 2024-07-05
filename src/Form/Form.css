@@ -27,6 +27,8 @@
     height:400px;
     border-radius: 8px;
   }
+
+  
   /* Media query for mobile devices */
 @media (max-width: 768px) {
   .maindiv {
