@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { Container, Typography } from '@mui/material';
+import { Container} from '@mui/material';
 import axios from 'axios';
 import Categories from '../Categories/Categories';
+import './User.css'
 
 
 interface Post {
@@ -13,8 +14,8 @@ interface Post {
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 90, headerClassName: 'header-blue' },
-  { field: 'title', headerName: 'Title', width: 150 },
-  { field: 'body', headerName: 'Body', width: 300 },
+  { field: 'title', headerName: 'Title', width: 150, headerClassName: 'header-blue' },
+  { field: 'body', headerName: 'Body', width: 300, headerClassName: 'header-blue' },
 ];
 
 const UserDetails = () => {
@@ -31,12 +32,10 @@ const UserDetails = () => {
   }, []);
 
   return (
-    <Container className='maindiv'>
-      <Typography variant="h4" gutterBottom>
-        Users Information
-      </Typography>
+    <Container>
+     <p className='text'>User's Information</p>
       <div style={{ height: 400, width: '100%' }}>
-        <DataGrid className='datagrid' rows={data} columns={columns} pageSize={5} />
+        <DataGrid className='datagrid' rows={data} columns={columns}  />
       </div>
       <Categories/>
     </Container>

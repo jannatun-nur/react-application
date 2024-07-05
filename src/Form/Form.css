@@ -1,19 +1,22 @@
 .container {
-    
+ 
     padding: 32px;
     border-radius: 8px;
     border: 2px solid #438fe7;
   }
   
   .maindiv {
+    margin-top: 100px;
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-left: 30px;
   }
   .title{
     color:  #438fe7;
     font-weight: 400;
   }
+
   .form-section,
   .image-section {
     flex: 1;
@@ -28,11 +31,20 @@
     border-radius: 8px;
   }
 
+  .form-text{
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    
+}
   
   /* Media query for mobile devices */
 @media (max-width: 768px) {
   .maindiv {
     flex-direction: column;
+    margin-left: 0px;
   }
 
   .form-section,

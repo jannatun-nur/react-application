@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { TextField, Button, Container, Typography } from '@mui/material';
+import { TextField, Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import './Form.css';
 import gif from '../../public/login.gif';
+import Swal from 'sweetalert2';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -14,8 +15,20 @@ const Form = () => {
     if (name && phone && email) {
       localStorage.setItem('userDetails', JSON.stringify({ name, phone, email }));
       navigate('/userdetail');
+      Swal.fire({
+        title: "Congratulation!",
+        text: "Successfully you have fill the form. ",
+        icon: "success"
+      });
+
     } else {
-      alert('Please fill in all fields');
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        text: "Please make sure you have filled the form."
+      
+      })
     }
   };
 
@@ -23,9 +36,7 @@ const Form = () => {
     <div className="maindiv">
       <section className="form-section">
         <Container className="container">
-          <Typography className="title" variant="h4" gutterBottom>
-            User Information
-          </Typography>
+          <p className='form-text'>User Information</p>
           <TextField
             label="Name"
             value={name}

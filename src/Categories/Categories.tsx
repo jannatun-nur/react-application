@@ -11,6 +11,14 @@ const json = [
   {
     "department": "Marketing",
     "sub_departments": ["SEO", "Content"]
+  },
+  {
+    "department": "Customer Service",
+    "sub_departments": ["Support", "Customer success"]
+  },
+  {
+    "department": "Design",
+    "sub_departments": ["Graphic design", "Product design" , " Web design"]
   }
 ];
 
@@ -58,7 +66,7 @@ const Categories = () => {
              onChange={() => handleSelect(dep.department)}
            />
            <ListItemText primary={dep.department} />
-           <IconButton onClick={() => handleToggle(dep.department)}>
+           <IconButton  onClick={() => handleToggle(dep.department)}>
              {open[dep.department] ? <ExpandLess /> : <ExpandMore />}
            </IconButton>
          </ListItem>
